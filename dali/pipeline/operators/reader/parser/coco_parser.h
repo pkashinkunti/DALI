@@ -55,7 +55,7 @@ class COCOParser: public Parser<ImageLabelWrapper> {
   explicit COCOParser(const OpSpec& spec, const AnnotationMap& annotations_multimap, const bool save_img_ids)
     : Parser<ImageLabelWrapper>(spec),
     annotations_multimap_(annotations_multimap),
-    img_ids_(img_ids) {}
+    save_img_ids_(save_img_ids) {}
 
   void Parse(const ImageLabelWrapper& image_label, SampleWorkspace* ws) override {
     Index image_size = image_label.image.size();
@@ -101,7 +101,7 @@ class COCOParser: public Parser<ImageLabelWrapper> {
   }
 
   const AnnotationMap& annotations_multimap_;
-  const bool& img_ids_;
+  const bool& save_img_ids_;
 };
 
 }  // namespace dali

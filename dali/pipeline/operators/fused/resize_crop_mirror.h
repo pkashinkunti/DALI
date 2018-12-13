@@ -45,7 +45,7 @@ class ResizeCropMirrorAttr : protected CropAttr {
     resize_longer_ = spec.ArgumentDefined("resize_longer");
     resize_x_ = spec.ArgumentDefined("resize_x");
     resize_y_ = spec.ArgumentDefined("resize_y");
-    DALI_ENFORCE((!(resize_shorter_ && resize_longer_), 
+    DALI_ENFORCE(!(resize_shorter_ && resize_longer_),
                  "Options `resize_longer` and `resize_shorter` are mutually"
                  " exclusive for schema \"" + spec.name() + "\"");
     DALI_ENFORCE((resize_shorter_ || resize_longer_) != (resize_x_ || resize_y_),
